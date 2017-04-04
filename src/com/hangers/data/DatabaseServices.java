@@ -24,7 +24,9 @@ public class DatabaseServices {
 	private final static String QUANTITY_QUERY="SELECT QUANTITY FROM STOCKIN WHERE ITEM_CODE=?";
 	private final static String ADD_STOCK_TO_MASTER_QUERY="INSERT INTO MASTER VALUES(?,?,?,?,?,?,?)";
 	private static String dropQuery = "DROP table STOCKOUT";
-	private static String tableCreate = "CREATE TABLE STOCKOUT(ITEM_CODE CHAR(50) NOT NULL,QUANTITY INT NOT NULL,PRICE_OUT FLOAT(20) NOT NULL,DATE_OUT DATE NOT NULL,TRANSACTION_ID CHAR(50)) ";
+	private static String tableCreatestockOut = "CREATE TABLE STOCKOUT(ITEM_CODE CHAR(50) NOT NULL,QUANTITY INT NOT NULL,PRICE_OUT FLOAT(20) NOT NULL,DATE_OUT DATE NOT NULL,TRANSACTION_ID CHAR(50)) ";
+	private static String tableCreatemaster = "CREATE TABLE MASTER(ITEM_CODE CHAR(50) PRIMARY KEY NOT NULL,ITEM_TYPE CHAR(50) NOT NULL,BRAND CHAR(50) NOT NULL,QUANTITY INT NOT NULL,SIZE CHAR(50) NOT NULL PRICE_IN FLOAT(20) NOT NULL,DATE_IN DATE NOT NULL) ";
+	private static String tableCreatestockIn = "CREATE TABLE STOCKIN(ITEM_CODE CHAR(50) PRIMARY KEY NOT NULL,ITEM_TYPE CHAR(50) NOT NULL,BRAND CHAR(50) NOT NULL,QUANTITY INT NOT NULL,SIZE CHAR(50) NOT NULL PRICE_IN FLOAT(20) NOT NULL,DATE_IN DATE NOT NULL) ";
 	private static String truncate="TRUNCATE TABLE MASTER";
 	private final static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
 	private final static String ADD_SELL_QUERY="INSERT INTO STOCKOUT VALUES(?,?,?,?,?)";
@@ -37,7 +39,7 @@ public class DatabaseServices {
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			ResultSet rs = st.executeQuery(truncate);
+			ResultSet rs = st.executeQuery(tableCreatestockIn);
 			String result=rs.toString();
 			System.out.println("Query executed!");
 			connection.close();
