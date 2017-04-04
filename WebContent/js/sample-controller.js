@@ -15,6 +15,7 @@
     	$cookieStore.put("loggedInStatus", "false");
     	$location.path("/");
     }
+    
 
     function sampleController($scope,$http) { 
     	console.log("Hello World");
