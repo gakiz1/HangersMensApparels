@@ -1,0 +1,18 @@
+<div ng-include="'header.html'"></div>
+<center style="padding-right: 211px; padding-top: 19%;">
+<div id="login">
+<h2 style="width: 453px;">ACCOUNTS</h2>
+<center style="background-color: black; height: 121px; padding-top: 17px; border-radius: 0px 0px 20px 20px;    height: 144px; width:453px">
+<table>
+<tr>
+<td style="padding-bottom: 18px;"><font color="white">FROM</font></td>&nbsp;<td style="padding-bottom: 18px;padding-left: 17px;"><input type="date" style="border: 1px solid #777;" ng-model="fromDate" min="2000-01-02"></td>
+<td style="padding-bottom: 18px;padding-left: 17px"><font color="white">TO</font></td>&nbsp;<td style="padding-bottom: 18px;padding-left: 17px;"><input type="date" style="border: 1px solid #777;" ng-model="toDate" min="2000-01-02"></td>
+</tr>
+</table>
+<button " value="submit" class="btn btn-default "ng-click="accounts()" style="background-color: #777">SUBMIT</button>
+ </center>
+</div>
+<div id="message">
+{{message}}
+</div>
+</center>
